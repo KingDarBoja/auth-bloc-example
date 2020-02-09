@@ -9,6 +9,7 @@ dependencies:
   angular: ^5.3.0
   angular_components: ^0.13.0
   angular_bloc: ^3.0.0
+  angular_router: ^2.0.0-alpha
   core_auth:
     path: ../core_auth
 
