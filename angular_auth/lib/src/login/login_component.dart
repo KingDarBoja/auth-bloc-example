@@ -19,7 +19,7 @@ import 'package:angular_auth/src/services/services.dart';
       MaterialIconComponent,
     ],
     providers: [
-      ClassProvider(AuthService),
+      // ClassProvider(AuthService),
       ClassProvider(LoginBloc),
       ClassProvider(AuthenticationBloc)
     ])
@@ -41,9 +41,6 @@ class LoginComponent implements OnActivate, CanNavigate {
       if (state is AuthenticationAuthenticated) {
         _authService.authenticated = true;
         _router.navigate(RoutePaths.dashboard.toUrl());
-      } else {
-        _authService.authenticated = false;
-        _router.navigate(RoutePaths.login.toUrl());
       }
     });
   }

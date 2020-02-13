@@ -13,6 +13,9 @@ import 'package:angular_auth/src/routes.dart';
     styleUrls: ['app_component.css'],
     templateUrl: 'app_component.html',
     directives: [routerDirectives],
-    providers: [ClassProvider(StorageService)],
+    providers: [
+      ClassProvider(AuthService),
+      ClassProvider(StorageService)
+    ],
     exports: [RoutePaths, Routes])
 class AppComponent {}

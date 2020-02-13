@@ -23,19 +23,18 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     if (event is LoginButtonPressed) {
       yield LoginLoading();
 
-      try {
-        final userData = await storageProvider.authenticate(
-          username: event.username,
-          password: event.password,
-        );
+      final userData = await storageProvider.authenticate(
+        username: event.username,
+        password: event.password,
+      );
 
-        var isAuth = userData?.token ?? false;
-        if (isAuth != false) {
-          yield LoginInitial();
-          authenticationBloc.add(LoggedIn(data: userData));
-        }
-      } catch (error) {
-        yield LoginFailure(error: error.toString());
+      var isAuth = userData?.token ?? false;
+      if (isAuth != false) {
+        authenticationBloc.add(LoggedIn(data: userData));
+        yield LoginInitial();
+      } else {
+        print('Unable to retrieve user data!');
+        yield LoginFailure(error: 'Unable to retrieve user data!');
       }
     }
   }
