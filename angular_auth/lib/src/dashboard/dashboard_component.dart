@@ -7,10 +7,4 @@ import 'package:angular/angular.dart';
   directives: [],
   providers: []
 )
-class DashboardComponent extends OnInit {
-  @override
-  void ngOnInit() {
-    // TODO: implement ngOnInit
-  }
-  
-}
+class DashboardComponent {}

@@ -1,4 +1,20 @@
 <div class="mdc-card mdc-card--outlined">
     <div class="mdc-card__media mdc-card__media--16-9"></div>
     <h2>Login Form</h2>
+    <form>
+        <div class="form-group">
+            <material-input [(ngModel)]="credentials.username" ngControl="username" leadingGlyph="account_circle"
+                leadingGlyphAriaLabel="Username" floatingLabel type="text" label="Username" required>
+            </material-input>
+        </div>
+        <div class="form-group">
+            <material-input [(ngModel)]="credentials.password" ngControl="password" leadingGlyph="security"
+                leadingGlyphAriaLabel="Password" floatingLabel type="text" label="Password" required>
+            </material-input>
+        </div>
+        <material-button raised compact (click)="loginUser()">Login</material-button>
+    </form>
 </div>
+
+
+    
