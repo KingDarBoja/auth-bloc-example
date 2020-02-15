@@ -30,7 +30,7 @@ class AuthenticationBloc
   ) async* {
     if (event is AppStarted) {
       final data = await storageProvider.hasToken(Endpoints.sessionStorageKey);
-      bool inSession = data?.token ?? false;
+      bool inSession = data?.token?.isEmpty;
       if (inSession) {
         yield AuthenticationAuthenticated(data);
       } else {
